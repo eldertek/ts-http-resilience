@@ -85,6 +85,12 @@ npm test
 npm run build
 ```
 
+## Security & Timeouts
+
+- Always configure `timeoutMs` and `maxDelayMs` to bound total request latency and avoid hanging workers.
+- Enable `autoIdempotencyKey: true` (or supply an explicit `Idempotency-Key`) before retrying mutating requests (`POST`/`PATCH`).
+- Never log `Authorization` or credential headers inside `onRetry` callbacks.
+
 ## License
 
 Released under the [MIT License](./LICENSE) by [Eclipse Technology](https://eclipse-technology.eu).
